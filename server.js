@@ -2,7 +2,10 @@ const express = require('express');
 const dns = require('dns').promises;
 const path = require('path');
 const app = express();
+app.use(cors());
+const cors = require('cors');
 const PORT = process.env.PORT || 5000;
+
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
