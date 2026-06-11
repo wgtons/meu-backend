@@ -1,20 +1,17 @@
 const express = require('express');
 const dns = require('dns').promises;
 const path = require('path');
+const cors = require('cors'); // Movido para o topo corretamente
+
 const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Configuração correta do CORS logo após inicializar o app
 app.use(cors({
     origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
-
-
-
-
-
-const cors = require('cors');
-const PORT = process.env.PORT || 5000;
-
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
